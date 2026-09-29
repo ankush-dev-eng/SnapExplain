@@ -79,7 +79,7 @@ export function ResultPanel({ result, material, provider }: ResultPanelProps) {
               </h3>
               <CopyButton text={result.summary} label="Copy" />
             </div>
-            <div className="bg-white/[0.03] border border-white/8 rounded-xl p-5">
+            <div className="bg-white/3 border border-white/8 rounded-xl p-5">
               <p className="text-sm text-slate-300 leading-relaxed prose-snap">
                 {result.summary}
               </p>
@@ -104,18 +104,18 @@ export function ResultPanel({ result, material, provider }: ResultPanelProps) {
               {result.keyPoints.map((point, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/8 hover:border-emerald-500/20 transition-all group animate-fade-in"
+                  className="flex items-start gap-3 p-3.5 rounded-xl bg-white/3 border border-white/8 hover:border-emerald-500/20 transition-all group animate-fade-in"
                   style={{ animationDelay: `${i * 50}ms` }}
                 >
                   <span
-                    className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-xs font-bold text-emerald-400 mt-0.5"
+                    className="shrink-0 w-6 h-6 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-xs font-bold text-emerald-400 mt-0.5"
                     aria-hidden="true"
                   >
                     {i + 1}
                   </span>
                   <span className="text-sm text-slate-300 leading-relaxed flex-1">{point}</span>
                   <ChevronRight
-                    className="w-4 h-4 text-slate-600 group-hover:text-emerald-500/50 flex-shrink-0 mt-0.5 transition-colors"
+                    className="w-4 h-4 text-slate-600 group-hover:text-emerald-500/50 shrink-0 mt-0.5 transition-colors"
                     aria-hidden="true"
                   />
                 </li>
@@ -163,7 +163,7 @@ export function ResultPanel({ result, material, provider }: ResultPanelProps) {
               aria-selected={activeTab === tab.id}
               aria-controls={`tabpanel-${tab.id}`}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border transition-all whitespace-nowrap flex-shrink-0 ${
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border transition-all whitespace-nowrap shrink-0 ${
                 activeTab === tab.id ? 'tab-active' : 'tab-inactive border-white/5'
               }`}
             >

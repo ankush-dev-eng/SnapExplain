@@ -109,7 +109,7 @@ export default function App() {
   const isOverLimit = charCount > MAX_TEXT_LENGTH;
 
   return (
-    <div className="min-h-screen bg-[#0a0b1a] relative overflow-x-hidden">
+    <div className="min-h-screen bg-surface-0 relative overflow-x-hidden">
       {/* Background decorations */}
       <div className="fixed inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-[120px]" />
@@ -125,7 +125,7 @@ export default function App() {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <div
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-blue-600 flex items-center justify-center glow-purple"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-linear-to-br from-violet-500 to-blue-600 flex items-center justify-center glow-purple"
                   aria-hidden="true"
                 >
                   <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -240,7 +240,7 @@ export default function App() {
                   rows={9}
                   maxLength={MAX_TEXT_LENGTH + 100}
                   disabled={appState === 'loading'}
-                  className="w-full bg-white/[0.03] border border-white/10 focus:border-violet-500/50 rounded-xl px-4 py-3.5 text-sm text-slate-200 placeholder-slate-600 outline-none transition-all resize-none leading-relaxed font-sans"
+                  className="w-full bg-white/3 border border-white/10 focus:border-violet-500/50 rounded-xl px-4 py-3.5 text-sm text-slate-200 placeholder-slate-600 outline-none transition-all resize-none leading-relaxed font-sans"
                   aria-label="Study material text input"
                   aria-required="true"
                   aria-invalid={!!error}
@@ -277,7 +277,7 @@ export default function App() {
                 role="alert"
                 aria-live="assertive"
               >
-                <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" aria-hidden="true" />
                 <p className="text-sm text-red-300">{error}</p>
               </div>
             )}
@@ -290,7 +290,7 @@ export default function App() {
                 onClick={handleProcess}
                 disabled={appState === 'loading' || !textInput.trim() || isOverLimit}
                 className="flex-1 sm:flex-none sm:px-6 py-3 rounded-xl text-sm font-semibold
-                  bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500
+                  bg-linear-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500
                   disabled:opacity-40 disabled:cursor-not-allowed
                   text-white transition-all flex items-center justify-center gap-2
                   glow-purple hover:scale-[1.02] active:scale-[0.98]"
@@ -372,7 +372,7 @@ export default function App() {
             >
               <div className="flex items-start gap-4">
                 <div
-                  className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center flex-shrink-0"
+                  className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center shrink-0"
                   aria-hidden="true"
                 >
                   <AlertCircle className="w-5 h-5 text-red-400" />
@@ -398,7 +398,7 @@ export default function App() {
           {appState === 'idle' && !textInput && (
             <div className="text-center py-16 space-y-4" aria-label="Getting started guide">
               <div
-                className="inline-flex w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500/10 to-blue-500/10 border border-white/5 items-center justify-center"
+                className="inline-flex w-16 h-16 rounded-2xl bg-linear-to-br from-violet-500/10 to-blue-500/10 border border-white/5 items-center justify-center"
                 aria-hidden="true"
               >
                 <BookOpen className="w-8 h-8 text-violet-400/60" />
@@ -411,7 +411,7 @@ export default function App() {
               </div>
               <div className="flex flex-wrap justify-center gap-2 text-xs text-slate-600">
                 {['Explanations', 'Summaries', 'Key Points', 'Quizzes', 'AI Chat'].map(feature => (
-                  <span key={feature} className="px-2.5 py-1 rounded-full bg-white/[0.03] border border-white/8">
+                  <span key={feature} className="px-2.5 py-1 rounded-full bg-white/3 border border-white/8">
                     {feature}
                   </span>
                 ))}

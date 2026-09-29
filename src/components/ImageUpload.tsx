@@ -99,7 +99,7 @@ export function ImageUpload({ onTextExtracted, onError, disabled }: ImageUploadP
         onClick={() => !disabled && !isProcessing && fileInputRef.current?.click()}
         onKeyDown={(e) => e.key === 'Enter' && !disabled && !isProcessing && fileInputRef.current?.click()}
         className={`relative border-2 border-dashed rounded-xl p-6 text-center transition-all cursor-pointer
-          ${isDragOver ? 'drop-zone-active' : 'border-white/10 hover:border-violet-500/40 hover:bg-white/[0.02]'}
+          ${isDragOver ? 'drop-zone-active' : 'border-white/10 hover:border-violet-500/40 hover:bg-white/2'}
           ${disabled || isProcessing ? 'opacity-50 cursor-not-allowed' : ''}
         `}
       >

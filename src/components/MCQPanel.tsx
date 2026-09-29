@@ -104,7 +104,7 @@ export function MCQPanel({ mcqs }: MCQPanelProps) {
             {/* Question header */}
             <div className="flex items-start gap-3">
               <div
-                className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold border ${
+                className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold border ${
                   state.submitted
                     ? isCorrect
                       ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-400'
@@ -163,7 +163,7 @@ export function MCQPanel({ mcqs }: MCQPanelProps) {
                       aria-label={option.text}
                     />
                     <div
-                      className={`flex-shrink-0 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
+                      className={`shrink-0 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
                         isSelected
                           ? 'border-violet-400 bg-violet-400'
                           : 'border-white/20 bg-transparent'
@@ -175,9 +175,9 @@ export function MCQPanel({ mcqs }: MCQPanelProps) {
                     <span className="text-sm text-slate-300 flex-1">{option.text}</span>
                     {state.submitted && (
                       isCorrectOpt ? (
-                        <Check className="w-4 h-4 text-emerald-400 flex-shrink-0" aria-hidden="true" />
+                        <Check className="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true" />
                       ) : isSelected ? (
-                        <X className="w-4 h-4 text-red-400 flex-shrink-0" aria-hidden="true" />
+                        <X className="w-4 h-4 text-red-400 shrink-0" aria-hidden="true" />
                       ) : null
                     )}
                   </label>
