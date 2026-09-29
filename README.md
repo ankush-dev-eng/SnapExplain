@@ -1,43 +1,86 @@
-# 🌊 SnapExplain
+<div align="center">
 
-<p align="center">
-  <img src="docs/assets/snap-explain-wave-top.svg" alt="SnapExplain gradient wave" width="100%" />
-</p>
+# 🧠 SnapExplain
 
-<h2 align="center">Understand Anything. Keep It Private.</h2>
+[![Typing SVG](https://readme-typing-svg.herokuapp.com/?font=Fira+Code&weight=600&size=24&pause=1000&color=00E5FF&center=true&vCenter=true&width=700&lines=Privacy-First+AI+Study+Assistant;Turn+Notes+Into+Clear+Explanations;Summaries%2C+Key+Points+%26+Quizzes;Built+for+Local-First+AI+Workflows)](https://git.io/typing-svg)
 
-<p align="center">
-  Privacy-first AI study assistant for turning notes and screenshots into simple explanations, summaries, key points, and quizzes.
-</p>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=&fontSize=0" width="100%"/>
 
-<p align="center">
-  <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-19.2-blue?style=flat-square&logo=react" alt="React" /></a>
-  <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-8.3-646CFF?style=flat-square&logo=vite" alt="Vite" /></a>
-  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-6.0-3178C6?style=flat-square&logo=typescript" alt="TypeScript" /></a>
-  <a href="https://tesseract.projectnaptha.com/"><img src="https://img.shields.io/badge/Tesseract.js-7.0-black?style=flat-square" alt="Tesseract.js" /></a>
-</p>
+**A privacy-first AI study assistant that transforms notes and screenshots into simple explanations, summaries, key points, and interactive quizzes.**
+
+Instead of fighting through dense blocks of textbook text or messy screenshots, SnapExplain digests the material and presents it in multiple interactive, learning-optimized formats. All designed around a local-first abstraction to keep your study material private.
+
+[![React](https://img.shields.io/badge/React-19.2.8-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0.2-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-8.3.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.3.3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Tesseract.js](https://img.shields.io/badge/Tesseract.js-7.0.0-black?style=for-the-badge)](https://tesseract.projectnaptha.com/)
+
+![Stars](https://img.shields.io/github/stars/ankush-dev-eng/SnapExplain?style=social) ![Forks](https://img.shields.io/github/forks/ankush-dev-eng/SnapExplain?style=social) ![Last Commit](https://img.shields.io/github/last-commit/ankush-dev-eng/SnapExplain?color=00E5FF&style=flat-square)
+
+</div>
 
 ---
 
-## 🧠 What is SnapExplain?
+### 🧠 What is this?
 
-SnapExplain takes study material supplied as text or screenshots and transforms it into:
+> Study material can be dense, fragmented, screenshot-heavy, and difficult to revise from quickly.
 
-- **Simple explanations** breaking down difficult concepts
-- **Summaries** condensing material into digestible insights
-- **Key points** extracting the most important ideas
-- **Interactive MCQs** for knowledge retention
-- **Contextual questions** through an interactive chat interface grounded in your content
+**SnapExplain** turns supplied material into:
+- simple explanations breaking down difficult concepts
+- concise summaries
+- key points extracting the most important ideas
+- interactive MCQs to test retention
+- contextual questions through an interactive chat interface
 
-It features a polished dark-mode interface with an immersive WebGL fluid background, glassmorphism, and responsive layout for a focused study environment.
+The application is engineered with a privacy-first mindset. Rather than unconditionally beaming sensitive notes to the cloud, the internal architecture abstracts the AI provider, laying the groundwork for Snapdragon NPU integration or local inference endpoints. A bundled demo provider allows immediate functional testing of the responsive WebGL-backed UI.
 
-## 🎯 Why SnapExplain?
+---
 
-Students often have dense notes, messy screenshots, technical terminology, and fragmented study material. 
+### ✨ Features
 
-SnapExplain focuses on turning that material into something easier to understand and revise, utilizing a local-first design. Rather than transmitting personal study notes or textbooks to external servers, the application is structured so that OCR extraction runs directly in the browser and AI generation targets local backend endpoints for maximum privacy.
+<table>
+<tr>
+<td width="50%" valign="top">
 
-## ⚙️ How It Works
+**📄 Content Input**  
+Seamlessly paste raw text notes or upload screenshots/images. The app uses Tesseract.js for in-browser OCR extraction, ensuring the text never leaves your device during this step.
+
+**🧠 AI Explanation**  
+Transforms complex topics into accessible "Explain Like I'm Learning This" narratives, complete with analogies and key terminology.
+
+</td>
+<td width="50%" valign="top">
+
+**📝 Smart Revision**  
+Generates concise summaries, bulleted key points, and dynamic 5-question multiple-choice quizzes that provide immediate scoring and feedback.
+
+**🔒 Local-First Architecture**  
+A modular `ProviderFactory` isolates the AI logic (`DemoProvider`, `LocalLLMProvider`), intentionally designed to support local on-device processing and AI PCs without heavy refactoring.
+
+</td>
+</tr>
+</table>
+
+---
+
+### 🛠️ Tech Stack
+
+<div align="center">
+
+| Layer | Technology |
+|---|---|
+| ⚛️ **UI / Framework** | React 19.2 + TypeScript + Tailwind CSS 4.3 |
+| 🧠 **AI Layer** | Abstracted Provider (`LocalLLMProvider`, `DemoProvider`) |
+| 🖼️ **Image Processing** | `tesseract.js` (In-Browser OCR) |
+| 🎨 **Graphics** | Vanilla WebGL (Fluid Canvas Background) |
+| ⚡ **Build Tool** | Vite 8.3 |
+
+</div>
+
+---
+
+### ⚙️ How It Works
 
 ```mermaid
 flowchart LR
@@ -52,52 +95,34 @@ flowchart LR
     E --> J[Ask]
 ```
 
-Behind the scenes:
-- **AI Provider Abstraction:** A flexible `ProviderFactory` manages AI endpoints (in `src/ai/`).
-- **DemoProvider:** An implementation returning simulated AI responses for rapid UI testing.
-- **LocalLLMProvider:** Scaffolding for local endpoints (e.g., Ollama or NPU-accelerated APIs).
-- **OCR Service:** Uses `tesseract.js` for on-device image text extraction.
-- **Frontend Components:** Modular React components handle stateful rendering for results, quizzes, and chat interactions.
+---
 
-## 💻 Snapdragon Relevance
-
-As a privacy-focused study application, SnapExplain is highly suitable for AI PCs powered by Snapdragon processors. 
-
-- **Local Inference:** Leveraging an NPU allows models to run efficiently on-device without compromising battery life.
-- **Privacy & Autonomy:** Students handle sensitive notes without requiring an internet connection or exposing data to cloud providers.
-- **Extensible Architecture:** The AI provider abstraction enables seamless swapping between simulated responses, local endpoints, or cloud APIs.
-
-> **Note:** The application is architected to support these capabilities. Actual Snapdragon hardware validation is currently pending.
-
-## 🚀 Getting Started
-
-Clone the repository and start the development server:
+### 🚀 Getting Started
 
 ```bash
-# 1. Clone the repository
+# 1. Clone the project
 git clone https://github.com/ankush-dev-eng/SnapExplain.git
 cd SnapExplain
 
 # 2. Install dependencies
 npm install
 
-# 3. Start development server
+# 3. Fire it up
 npm run dev
 ```
 
-## 🧪 Testing & Validation Status
+Then open the local dev URL Vite prints — and start transforming your notes. ⚡
 
-| Component | Status | Notes |
-| :--- | :--- | :--- |
-| **Vite / React Build** | PASS | Successfully compiles and serves via `npm run build` |
-| **UI Components** | PASS | All tabs, quizzes, and chat interactions render correctly |
-| **Demo AI Provider** | PASS | Mock responses return and populate UI successfully |
-| **In-Browser OCR** | PENDING | Scaffolded via `tesseract.js`; end-to-end extraction pending |
-| **Local LLM Inference**| PENDING | Provider implemented; requires active local endpoint to verify |
-| **Snapdragon NPU** | UNTESTED | Architecture supports it; hardware validation not yet performed |
+---
 
-<br/>
+### 🧪 Snapdragon Relevance & Validation
 
-<p align="center">
-  <img src="docs/assets/snap-explain-wave-bottom.svg" alt="SnapExplain bottom wave" width="100%" />
-</p>
+The application is purposefully designed to target local execution, aligning perfectly with Snapdragon AI PC paradigms:
+* **Local Inference:** Eliminates latency and cloud dependency.
+* **Privacy:** Sensitive academic material stays strictly on-device.
+
+*Note: The provider architecture heavily scaffolds this workflow, though explicit Snapdragon NPU hardware validation is currently pending verification.*
+
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer&text=&fontSize=0" width="100%"/>
+</div>
