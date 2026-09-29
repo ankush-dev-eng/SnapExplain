@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 160" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="33%" stop-color="#4facfe" />
+      <stop offset="66%" stop-color="#b066fe" />
+      <stop offset="100%" stop-color="#f093fb" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="33%" stop-color="#4facfe" />
+      <stop offset="66%" stop-color="#b066fe" />
+      <stop offset="100%" stop-color="#f093fb" />
+    </linearGradient>
+  </defs>
+  <!-- Back layer -->
+  <path fill="url(#grad2)" fill-opacity="0.3" d="M0,160 L1200,160 L1200,40 C900,10 400,100 0,60 Z" />
+  <!-- Mid layer -->
+  <path fill="url(#grad1)" fill-opacity="0.6" d="M0,160 L1200,160 L1200,70 C800,30 500,110 0,80 Z" />
+  <!-- Front layer -->
+  <path fill="url(#grad2)" fill-opacity="1" d="M0,160 L1200,160 L1200,100 C700,60 300,130 0,110 Z" />
+</svg>
