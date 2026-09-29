@@ -1,117 +1,88 @@
 # SnapExplain
 
-**Privacy-first AI study assistant designed for Snapdragon-powered Windows PCs.**
+Privacy-first AI study assistant for turning notes and screenshots into simple explanations, summaries, key points, and quizzes.
 
-SnapExplain takes any study material — a paragraph, a textbook passage, lecture notes, or an image/screenshot — and instantly produces:
+SnapExplain is a local-first learning tool that allows users to instantly transform their study materials into interactive, digestible content. By pasting text or uploading screenshots of lecture notes, the application processes the input to generate simple explanations, concise summaries, bulleted key points, and multiple-choice quizzes. SnapExplain is engineered with a privacy-first mindset, exploring on-device execution to keep user data secure and reduce cloud dependencies.
 
-- 📖 **Simple Explanation** — plain-language breakdown of the content
-- 📄 **Summary** — concise overview of the main ideas
-- 🔑 **Key Points** — numbered, actionable takeaways
-- ❓ **Practice Quiz (MCQs)** — 5 multiple-choice questions with feedback and explanations
-- 💬 **Ask AI** — contextual chat about the content
+## Key Features
 
----
+- **Text & Image Input:** Seamlessly paste study content or upload images/screenshots.
+- **AI Analysis:** Transforms complex notes into accessible learning formats.
+- **Simple Explanations & Analogies:** Breaks down difficult concepts.
+- **Summary & Key Points:** Condenses material into digestible insights.
+- **Interactive Quizzes (MCQs):** Tests knowledge retention with dynamic 5-question quizzes.
+- **Ask AI (Contextual Q&A):** Interactive chat interface grounded in your uploaded content.
+- **Local AI Provider Architecture:** Abstracted provider pattern designed to support local inference endpoints.
+- **Demo Provider:** Fully functional rule-based provider for immediate frontend verification.
+- **Immersive UI:** A polished dark-mode interface featuring a WebGL fluid background, glassmorphism, and responsive layout.
+- **Privacy-First Design:** Architecture intended for on-device processing.
 
-## Problem
+## How It Works
 
-Students waste time re-reading dense material. Traditional AI study tools send your private notes to cloud servers, creating privacy concerns. They require internet access and incur API costs per query.
+**Architecture Flow:**
+```text
+User Content
+    ↓
+Text / Image Input
+    ↓
+Content Processing (Tesseract.js OCR for images)
+    ↓
+AI Provider (Abstracted interface)
+    ↓
+SnapExplain Analysis
+    ↓
+Summary / Explanation / Key Points / MCQs / Q&A
+```
 
-## Solution
+**Implementation Details:**
+- **AI Provider Abstraction:** A flexible `ProviderFactory` manages AI endpoints (located in `src/ai/`).
+- **DemoProvider:** An implementation returning simulated AI responses for rapid UI testing and fallback.
+- **LocalLLMProvider:** A scaffolding for local endpoints (e.g., Ollama or NPU-accelerated local APIs).
+- **OCR Service:** Uses `tesseract.js` for on-device image text extraction (`src/services/ocr.ts`).
+- **Frontend Components:** Modular React components (`src/components/`) handle stateful rendering for results, quizzes, and chat interactions.
 
-SnapExplain processes study material **entirely on your device** — no network requests, no account required, no API costs. The architecture is designed to ultimately leverage the Snapdragon Neural Processing Unit (NPU) for sub-second local inference, making it ideal for students on Snapdragon-powered Windows laptops.
+## Privacy and Local AI Architecture
 
----
-
-## Features
-
-| Feature | Status |
-|---|---|
-| Single HTML file architecture | ✅ Implemented |
-| Text input / paste area | ✅ Implemented & verified |
-| Image upload with drag-and-drop | ✅ Implemented & verified |
-| WebGL Fluid background | ✅ Implemented & verified |
-| OCR text extraction | ✅ Stubbed (Tesseract not fully bundled) |
-| Simple Explanation tab | ✅ Implemented & verified |
-| Summary tab | ✅ Implemented & verified |
-| Key Points tab | ✅ Implemented & verified |
-| MCQ Quiz with feedback | ✅ Implemented & verified |
-| Ask AI contextual chat (streaming) | ✅ Implemented & verified |
-| Reset functionality | ✅ Implemented & verified |
-| Loading states | ✅ Implemented & verified |
-| Responsive layout | ✅ Implemented |
-| Demo mode (in-browser NLP) | ✅ Implemented & verified |
-| Local LLM provider (Ollama) | ✅ Implemented & verified |
-
----
-
-## Architecture
-
-The entire application runs from a single `index.html` file with no build step, bundlers, or frameworks. It is heavily inspired by the "Flowstate" deep-work application design system.
-
-- **HTML/CSS/JS** — Single file
-- **WebGL Fluid Simulation** — For an immersive visual experience.
-- **Lenis** — Smooth scrolling.
-
-### AI Provider Architecture
-
-SnapExplain uses a provider abstraction layer that cleanly separates the UI from any specific AI implementation:
-
-1. **LocalLLMProvider** — Connects to a local inference endpoint (like Ollama running `phi3:mini`). Now supports streaming chat responses and conversation history.
-2. **DemoProvider** — Always available fallback. Uses rule-based NLP for instantaneous static testing.
-
----
-
-## AI: DemoProvider (Current Implementation)
-
-**What it actually is:** A rule-based, deterministic text-analysis engine running entirely in the browser.
-**Limitations:** Not a neural language model — no reasoning, paraphrasing, or cross-sentence inference.
-
----
-
-## Local / On-Device AI Approach (Ollama)
-
-SnapExplain is ready to connect to a local LLM through Ollama.
-1. Run `ollama run phi3:mini`.
-2. Ensure Ollama is running at `http://localhost:11434`.
-3. The app will automatically detect it and use the local model instead of the Demo mode.
-
----
+SnapExplain is designed around a local-first AI architecture to reduce unnecessary cloud dependency and support privacy-sensitive study workflows. Rather than transmitting personal study notes or textbooks to external servers, the application is structured so that OCR extraction runs directly in the browser and AI generation can target a local backend endpoint.
 
 ## Snapdragon Relevance
 
-SnapExplain is designed with Snapdragon X Elite / X Plus PCs as the target platform:
+As a privacy-focused study application, SnapExplain is highly suitable for AI PCs powered by Snapdragon processors.
+- **Local Inference:** Leveraging an NPU allows models to run efficiently on-device without compromising battery life.
+- **Privacy & Autonomy:** Students handle sensitive notes without requiring an internet connection or exposing data to cloud providers.
+- **Extensible Architecture:** The AI provider abstraction enables seamless swapping between simulated responses, local endpoints (like an NPU-accelerated service), or cloud APIs. 
 
-- **NPU acceleration:** Optimized local models (like Phi-3) compiled for the Snapdragon NPU would run rapidly.
-- **Battery efficiency:** On-device inference avoids continuous network I/O.
-- **Privacy-by-design:** Study notes never leave the device.
+*Note: The application is designed to target these capabilities; actual Snapdragon hardware validation is pending.*
 
-> **Honest disclaimer:** Snapdragon NPU execution has NOT been tested in the current development environment. The DemoProvider and a generic Ollama local server are used in its place.
+## Visuals and UX
 
----
+The application presents an immersive dark interface designed to minimize distractions and enhance focus. An animated WebGL fluid background provides an engaging, dynamic environment behind frosted glass surfaces. The centered AI interaction window ensures a lightweight, responsive, and highly focused user experience across devices.
 
-## Running
+## Tech Stack
 
-Simply open `index.html` in any modern web browser. No installation or build steps are required.
+- **TypeScript**
+- **React** (v19)
+- **Vite** (v8)
+- **Tailwind CSS** (v4)
+- **Tesseract.js** (In-browser OCR)
+- **WebGL** (Fluid canvas background)
 
----
+## Getting Started
 
-## Actually Tested Functionality
+```bash
+git clone https://github.com/ankush-dev-eng/SnapExplain.git
+cd SnapExplain
+npm install
+npm run dev
+```
 
-| Test | Result |
-|---|---|
-| App loads in browser | ✅ PASS |
-| Single HTML structure maintained | ✅ PASS |
-| WebGL Fluid rendering | ✅ PASS |
-| "Load Demo" populates text | ✅ PASS |
-| "Analyze" shows loading state then results | ✅ PASS |
-| Tabs navigation works | ✅ PASS |
-| Quiz interactions work | ✅ PASS |
-| Ask AI tab history and streaming | ✅ PASS |
+## Testing & Validation Status
 
----
-
-## Known Limitations
-
-1. **OCR not end-to-end tested:** Tesseract.js is not bundled in the single HTML file version to prevent massive file sizes.
-2. **No Snapdragon NPU testing:** This environment does not have a Snapdragon device.
-3. **Local LLM Model Specifics:** Ollama must be properly configured for CORS if running from a local file protocol.
+| Component | Status | Notes |
+| :--- | :--- | :--- |
+| **Vite / React Build** | PASS | Successfully compiles and serves via `npm run build` |
+| **UI Components** | PASS | All tabs, quizzes, and chat interactions render correctly |
+| **Demo AI Provider** | PASS | Mock responses return and populate UI successfully |
+| **In-Browser OCR** | PENDING | Scaffolded via `tesseract.js`; end-to-end extraction pending |
+| **Local LLM Inference**| PENDING | Provider implemented; requires active local endpoint to verify |
+| **Snapdragon NPU** | UNTESTED | Architecture supports it; hardware validation not yet performed |
