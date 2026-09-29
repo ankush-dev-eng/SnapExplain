@@ -76,7 +76,7 @@ export function ChatPanel({ material, provider }: ChatPanelProps) {
   ];
 
   return (
-    <div className="flex flex-col h-[560px]">
+    <div className="flex flex-col h-140">
       {/* Header */}
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
@@ -136,7 +136,7 @@ export function ChatPanel({ material, provider }: ChatPanelProps) {
               className={`flex gap-3 animate-fade-in ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
             >
               <div
-                className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
+                className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
                   msg.role === 'user'
                     ? 'bg-violet-600/30 text-violet-400'
                     : 'bg-blue-600/20 text-blue-400'
@@ -165,7 +165,7 @@ export function ChatPanel({ material, provider }: ChatPanelProps) {
 
         {isLoading && (
           <div className="flex gap-3 animate-fade-in" aria-live="polite" aria-label="Loading response">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600/20 flex items-center justify-center">
+            <div className="shrink-0 w-8 h-8 rounded-full bg-blue-600/20 flex items-center justify-center">
               <Bot className="w-4 h-4 text-blue-400" aria-hidden="true" />
             </div>
             <div className="bg-white/5 border border-white/8 rounded-2xl rounded-tl-sm px-4 py-3 flex items-center gap-2">
@@ -203,7 +203,7 @@ export function ChatPanel({ material, provider }: ChatPanelProps) {
             placeholder="Ask a question… (Enter to send, Shift+Enter for newline)"
             rows={1}
             style={{ resize: 'none' }}
-            className="w-full bg-white/5 border border-white/10 focus:border-violet-500/50 rounded-xl px-4 py-3 text-sm text-slate-200 placeholder-slate-600 outline-none transition-colors min-h-[48px] max-h-[120px] overflow-y-auto"
+            className="w-full bg-white/5 border border-white/10 focus:border-violet-500/50 rounded-xl px-4 py-3 text-sm text-slate-200 placeholder-slate-600 outline-none transition-colors min-h-12 max-h-30 overflow-y-auto"
             aria-label="Chat input"
             aria-multiline="true"
             disabled={isLoading}
@@ -218,7 +218,7 @@ export function ChatPanel({ material, provider }: ChatPanelProps) {
           type="button"
           onClick={sendMessage}
           disabled={!input.trim() || isLoading}
-          className="flex-shrink-0 w-12 h-12 rounded-xl bg-violet-600 hover:bg-violet-500 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
+          className="shrink-0 w-12 h-12 rounded-xl bg-violet-600 hover:bg-violet-500 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
           aria-label="Send message"
         >
           {isLoading

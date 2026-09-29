@@ -12,18 +12,15 @@ import { ResultSkeleton } from './components/LoadingSkeleton';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const DEMO_TEXT = `Photosynthesis is the biological process by which green plants, algae, and some bacteria convert light energy, usually from the sun, into chemical energy stored in glucose. This process occurs primarily in the chloroplasts, which contain a green pigment called chlorophyll.
+const DEMO_TEXT = `TCP/IP is the protocol suite used for communication across interconnected networks. It organizes communication into layers responsible for application services, transport, internet addressing and routing, and network access.
 
-The overall chemical equation for photosynthesis is:
-6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂
+Think of TCP/IP as a set of rules that lets devices communicate. IP handles where data should go, while transport protocols such as TCP manage how data is delivered.
 
-Photosynthesis has two main stages:
-• Light-dependent reactions: These occur in the thylakoid membranes and require direct light. Water molecules are split (photolysis), releasing oxygen as a byproduct, and light energy is converted into chemical energy in the form of ATP and NADPH.
-• Light-independent reactions (Calvin Cycle): These occur in the stroma and use the ATP and NADPH from the light reactions to convert carbon dioxide into glucose through a series of enzyme-controlled reactions.
-
-Factors that affect the rate of photosynthesis include light intensity, carbon dioxide concentration, temperature, and water availability. Chlorophyll absorbs mainly red and blue light, reflecting green light, which is why most plants appear green.
-
-Photosynthesis is fundamental to most life on Earth because it produces oxygen and forms the base of almost all food chains. It also plays a crucial role in the global carbon cycle.`;
+Key concepts:
+- TCP provides reliable, ordered, and error-checked delivery of a stream of octets.
+- IP handles the logical addressing and routing of packets across network boundaries.
+- UDP is connectionless and does not guarantee delivery or ordering, used when speed is prioritized over reliability.
+- DNS translates human-readable domain names to IP addresses.`;
 
 const MAX_TEXT_LENGTH = 15000;
 
@@ -335,10 +332,10 @@ export default function App() {
                     bg-white/5 hover:bg-white/10 border border-white/10 hover:border-red-500/30
                     text-slate-400 hover:text-red-400 disabled:opacity-40 disabled:cursor-not-allowed
                     transition-all flex items-center justify-center gap-2"
-                  aria-label="Clear all input and results"
+                  aria-label="Clear all input and results for new content"
                 >
                   <RotateCcw className="w-4 h-4" aria-hidden="true" />
-                  Reset
+                  New Content
                 </button>
               )}
             </div>
